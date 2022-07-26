@@ -28,5 +28,13 @@
            return res.status(201).send(error.message)
       }
    })
+   router.patch("/:id",async function(req,res){
+      try {
+          const product =await Products.findByIdAndUpdate(req.params.id,req.body)
+             return res.status(201).send(product)
+        } catch (error) {
+           return res.status(201).send(error.message)
+      }
+   })
 
  module.exports =router
